@@ -18,7 +18,7 @@ enum OrderStatus {
 }
 
 entity Category {
-	title String required
+    title String required
     description String required,
 }
 
@@ -36,21 +36,21 @@ entity Customer {
 }
 
 entity Order {
-	status OrderStatus,
+    status OrderStatus,
     dateAdded Instant,
     dateModified Instant,
 }
 
 relationship OneToMany {
-	Customer{order} to Order{customer(email)}
+    Customer{order} to Order{customer(email)}
 }
 
 relationship OneToMany {
-	Product{order} to Order{product(title)}
+    Product{order} to Order{product(title)}
 }
 
 relationship ManyToMany {
-    Category{product} to Product{category(category)}
+    Product{category(title)} to Category{product}
 }
 
 paginate Customer, Product, Category with pagination

@@ -198,7 +198,7 @@ https://www.jhipster.tech/jdl/
 Download [./gronazon.jh] and place it in the project directory
 
 ```
-jhipster-quarkus import-jdl ./gronazon.jh
+$ jhipster-quarkus import-jdl ./gronazon.jh
 ```
 
 Run the application
