@@ -1,0 +1,61 @@
+application {
+  config {
+    applicationType monolith,        
+    baseName gronazon,
+    packageName com.gronazon,
+    databaseType sql,
+    devDatabaseType mysql
+    prodDatabaseType mysql,
+    authenticationType jwt
+    buildTool maven,
+    languages [en,fr]
+  }
+  entities *
+}
+
+enum OrderStatus {
+    CREATED, IN_PROGRESS, COMPLETED, CANCELLED
+}
+
+entity Category {
+    title String required
+    description String required,
+}
+
+entity Product {
+    title String required,
+    description String required,
+    price Double,
+}
+
+entity Customer {
+    firstName String,
+    lastName String,
+    email String,
+    telephone String maxlength(10)
+}
+
+entity Order {
+    status OrderStatus,
+    dateAdded Instant,
+    dateModified Instant,
+}
+
+relationship OneToMany {
+    Customer{order} to Order{customer(email)}
+}
+
+relationship OneToMany {
+    Product{order} to Order{product(title)}
+}
+
+relationship ManyToMany {
+    Product{category(title)} to Category{product}
+}
+
+paginate Customer, Product, Category with pagination
+paginate Order with infinite-scroll
+
+service Order with serviceClass
+
+dto * with mapstruct
