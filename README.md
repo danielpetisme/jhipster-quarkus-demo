@@ -104,7 +104,7 @@ At that point your should do a tour of the generated code:
 ### Running the application
 
 ```
-./mvnw
+$ ./mvnw
 ```
 
 At that point you should focus on:
@@ -190,8 +190,8 @@ At that point your should do a tour of the generated code
 
 Run the application
 ```
-#Because Liquibase is causing reloading issue, we recommend to stop/start the application
-./mvnw
+# Because Liquibase is causing reloading issue, we recommend to stop/start the application
+$ ./mvnw
 ```
 
 At that point you should focus on:
@@ -211,12 +211,12 @@ $ jhipster-quarkus import-jdl ../gronazon.jh
 
 This time the app relies on MySQL and not h2
 ```
-docker-compose -f src/main/docker/mysql up
+$ docker-compose -f src/main/docker/mysql up
 ```
 
 Run the application
 ```
-./mvnw
+$ ./mvnw
 ```
 
 At that point you should focus on:
@@ -342,6 +342,13 @@ $ ./target/gronazon-1.0.0-SNAPSHOT-runner
 2021-02-16 22:31:52,525 INFO  [io.quarkus] (main) gronazon 1.0.0-SNAPSHOT native (powered by Quarkus 1.11.0.Final) started in 0.140s. Listening on: http://0.0.0.0:8080
 2021-02-16 22:31:52,525 INFO  [io.quarkus] (main) Profile prod activated.
 2021-02-16 22:31:52,525 INFO  [io.quarkus] (main) Installed features: [agroal, cdi, hibernate-orm, hibernate-orm-panache, hibernate-validator, jdbc-h2, jdbc-mysql, liquibase, mailer, micrometer, mutiny, narayana-jta, qute, resteasy, resteasy-jsonb, security, servlet, smallrye-context-propagation, smallrye-health, smallrye-jwt, smallrye-openapi, swagger-ui, vertx, vertx-web]
+```
+
+Check the consumed memory
+
+```
+$ rss gronazon-1.0.0-SNAPSHOT-runner
+17548 53M ./target/gronazon-1.0.0-SNAPSHOT-runner
 ```
 
 ## Credits
