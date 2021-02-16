@@ -1,0 +1,46 @@
+{
+  "name": "Product",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "order",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "order"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "category",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "category",
+      "otherEntityField": "category",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20210216142902",
+  "entityTableName": "product",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["gronazon"]
+}

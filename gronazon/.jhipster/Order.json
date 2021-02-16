@@ -1,0 +1,45 @@
+{
+  "name": "Order",
+  "fields": [
+    {
+      "fieldName": "status",
+      "fieldType": "OrderStatus",
+      "fieldValues": "CREATED,IN_PROGRESS,COMPLETED,CANCELLED"
+    },
+    {
+      "fieldName": "dateAdded",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "dateModified",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "customer",
+      "otherEntityRelationshipName": "order",
+      "relationshipName": "customer",
+      "otherEntityField": "email"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "order",
+      "relationshipName": "product",
+      "otherEntityField": "title"
+    }
+  ],
+  "changelogDate": "20210216143102",
+  "entityTableName": "order",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["gronazon"]
+}
