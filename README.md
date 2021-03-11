@@ -211,7 +211,7 @@ $ jhipster-quarkus import-jdl ../gronazon.jh
 
 This time the app relies on MySQL and not h2
 ```
-$ docker-compose -f src/main/docker/mysql up
+$ docker-compose -f src/main/docker/mysql.yml up
 ```
 
 Run the application
